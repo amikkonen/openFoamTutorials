@@ -1,0 +1,92 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX-OS                                                  |
+|   o   O   o      | Version: v2.2.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class volScalarField;
+    location "0";
+    object omega;
+}
+dimensions [ 0 0 -1 0 0 0 0 ];
+internalField uniform 10000.0;
+boundaryField
+{
+    ffminx
+    {
+        type omegaWallFunction;
+        value uniform 1;
+    }
+
+    ffmaxx
+    {
+        type omegaWallFunction;
+        value uniform 1;
+    }
+
+    ffminy
+    {
+        type omegaWallFunction;
+        value uniform 1;
+    }
+
+    ffmaxy
+    {
+        type omegaWallFunction;
+        value uniform 1;
+    }
+
+    symmetryPlane
+    {
+        type symmetry;
+    }
+
+    ffmaxz
+    {
+        type omegaWallFunction;
+        value uniform 1;
+    }
+
+    inletBig
+    {
+        type inletOutlet;
+        value uniform 0.1;
+        inletValue uniform 0.1;
+    }
+
+    inletSmall
+    {
+        type inletOutlet;
+        value uniform 0.1;
+        inletValue uniform 0.1;
+    }
+
+    outlet
+    {
+        type zeroGradient;
+    }
+
+    wall
+    {
+        type omegaWallFunction;
+        value uniform 1;
+    }
+
+    procBoundary0to1
+    {
+        type processor;
+        value uniform 0.01;
+    }
+
+    procBoundary1to0
+    {
+        type processor;
+        value uniform 0.01;
+    }
+
+}

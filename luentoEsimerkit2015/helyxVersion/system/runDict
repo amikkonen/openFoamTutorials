@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX-OS                                                  |
+|   o   O   o      | Version: v2.2.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location system;
+    object runDict;
+}
+
+    state FINISHED;
+    queue false;
+    logFile buoyantBoussinesqSimpleFoam.log;
+    finalizableDelegatedExecutorService
+    {
+    }
+
+    solverApplication buoyantBoussinesqSimpleFoam;
+    queueParameters
+    {
+        numberOfNodes 0;
+        cpuPerNode 0;
+        timeout 0;
+    }
+
+    logPort 21001;
+    sshParameters
+    {
+        user ;
+        sshpwd ;
+        sshkey ;
+        openFoamDir ;
+        sshauth SSH_PWD;
+        remoteBaseDir ;
+        remoteBaseDirParent ;
+        applicationDir ;
+        host ;
+        port 22;
+    }
+
+    remote false;
+    postProcFileMap
+    {
+    }
+
+    hostfilePath ;
+    multiMachine false;
+    rmiPort 20001;

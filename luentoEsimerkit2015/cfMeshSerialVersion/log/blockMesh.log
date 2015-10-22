@@ -1,0 +1,79 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.3.1-bcfaaa7b8660
+Exec   : blockMesh -dict system/blockMeshDict -case /home/ami/Desktop/virtauslaskenta/etukateenTehty/helyxVersion
+Date   : Oct 21 2015
+Time   : 15:41:37
+Host   : "lapami"
+PID    : 14290
+Case   : /home/ami/Desktop/virtauslaskenta/etukateenTehty/helyxVersion
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/home/ami/Desktop/virtauslaskenta/etukateenTehty/helyxVersion/system/blockMeshDict"
+Creating curved edges
+Creating topology blocks
+Creating topology patches
+
+Reading patches section
+
+Creating block mesh topology
+
+Reading physicalType from existing boundary file
+
+Default patch type set to empty
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.0025 .. 0.0025
+        j : 0.0025 .. 0.0025
+        k : 0.0025 .. 0.0025
+
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (-0.026 0 0) (0.1015 0.125 0.0125)
+  nPoints: 15912
+  nCells: 12750
+  nFaces: 41305
+  nInternalFaces: 35195
+----------------
+Patches
+----------------
+  patch 0 (start: 35195 size: 250) name: ffminx
+  patch 1 (start: 35445 size: 250) name: ffmaxx
+  patch 2 (start: 35695 size: 255) name: ffminy
+  patch 3 (start: 35950 size: 255) name: ffmaxy
+  patch 4 (start: 36205 size: 2550) name: symmetryPlane
+  patch 5 (start: 38755 size: 2550) name: ffmaxz
+
+End
+

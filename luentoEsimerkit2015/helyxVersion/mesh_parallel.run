@@ -1,0 +1,38 @@
+#!/bin/bash
+echo "******************"
+echo "*    Run Mesh    *"
+echo "******************"
+
+echo "Case         : $CASE"
+echo "Procs        : $NP"
+echo "Log          : $LOG"
+echo "Env          : $ENV_LOADER"
+echo "Vendor       : $VENDOR_HOME"
+echo "MachineFile  : $MACHINEFILE"
+echo "Solver       : $SOLVER"
+
+unset LD_LIBRARY_PATH
+unset WM_COMPILER
+unset WM_PROJECT_VERSION
+unset WM_THIRDPARTY_VERSION
+unset ParaView_MAJOR
+unset ParaView_VERSION
+unset WM_MPLIB
+unset FOAM_MPI
+
+export FOAM_INST_DIR=$VENDOR_HOME
+. $ENV_LOADER
+
+set -e
+set -o pipefail
+
+
+blockMesh -dict system/blockMeshDict -case $CASE 2>&1 | tee $BLOCK_LOG
+
+decomposePar -force -noFunctionObjects -case $CASE
+
+mpirun  -np $NP snappyHexMesh -parallel -overwrite -case $CASE 2>&1 | tee $LOG
+
+rm -rf constant/polyMesh
+
+

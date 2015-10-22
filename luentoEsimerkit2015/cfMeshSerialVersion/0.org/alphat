@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      alphat;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    ffminx
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt             0.85;
+        value           nonuniform 0();
+    }
+    ffmaxx
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt             0.85;
+        value           nonuniform 0();
+    }
+    ffminy
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt             0.85;
+        value           nonuniform 0();
+    }
+    ffmaxy
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt             0.85;
+        value           nonuniform 0();
+    }
+    symmetryPlane
+    {
+        type            symmetry;
+    }
+    ffmaxz
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt             0.85;
+        value           nonuniform 0();
+    }
+    inletBig
+    {
+        type            zeroGradient;
+    }
+    inletSmall
+    {
+        type            zeroGradient;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    wall
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt             0.85;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

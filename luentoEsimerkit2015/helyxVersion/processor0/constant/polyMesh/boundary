@@ -1,0 +1,93 @@
+
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class polyBoundaryMesh;
+    location "0/polyMesh";
+    object boundary;
+}
+11(
+
+    ffminx
+    {
+        nFaces 0;
+        startFace 42151;
+        type wall;
+    }
+
+    ffmaxx
+    {
+        nFaces 0;
+        startFace 42151;
+        type wall;
+    }
+
+    ffminy
+    {
+        nFaces 0;
+        startFace 42151;
+        type wall;
+    }
+
+    ffmaxy
+    {
+        nFaces 0;
+        startFace 42151;
+        type wall;
+    }
+
+    symmetryPlane
+    {
+        nFaces 1626;
+        startFace 42151;
+        type symmetry;
+    }
+
+    ffmaxz
+    {
+        nFaces 0;
+        startFace 43777;
+        type wall;
+    }
+
+    inletBig
+    {
+        nFaces 179;
+        startFace 43777;
+        type patch;
+    }
+
+    inletSmall
+    {
+        nFaces 92;
+        startFace 43956;
+        type patch;
+    }
+
+    outlet
+    {
+        nFaces 0;
+        startFace 44048;
+        type patch;
+    }
+
+    wall
+    {
+        nFaces 1876;
+        startFace 44048;
+        type wall;
+    }
+
+    procBoundary0to1
+    {
+        nFaces 739;
+        startFace 45924;
+        type processor;
+        inGroups ( processor);
+        matchTolerance 0.0001;
+        transform unknown;
+        myProcNo 0;
+        neighbProcNo 1;
+    }
+)

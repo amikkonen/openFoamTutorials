@@ -1,0 +1,64 @@
+// Auto generated with dict2foam
+/*--------------------------------*- C++ -*----------------------------------*| =========                 |                                                |
+| \      /  F ield         | OpenFOAM GUI Project: creativeFields           |
+|  \    /   O peration     | Version:  0.8.9.0                                  |
+|   \  /    A nd           | Web: www.c-fields.com                                       |
+|    \/     M anipulation  |                                                |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    location    "system";
+    version     2;
+    class       dictionary;
+    object      meshDict;
+    format      ascii;
+}
+
+surfaceFile              "constant/triSurface/putki.stl";
+
+minCellSize              0.001;
+maxCellSize              0.002;
+
+objectRefinements
+{
+    jetArea // can be any name
+    {
+        radius1     0.025;
+        radius0     0.025;
+        p0          ( -0.026 0.1 0 );
+        p1          (  0.05  0.1 0 );
+        cellSize    0.0015;
+        type        cone;
+    }
+}
+
+surfaceMeshRefinement
+{
+}
+
+localRefinement
+{
+    "wall"
+    {
+        refinementThickness    0.0015;
+        cellSize               0.001;
+    }
+}
+
+
+boundaryLayers
+{
+    patchBoundaryLayers
+    {
+        "wall.*"
+        {
+            nLayers               6;
+            thicknessRatio        1.2;
+            allowDiscontinuity    0;
+        }
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.1;
+
+boundaryField
+{
+    ffminx
+    {
+        type            kqRWallFunction;
+        value           nonuniform 0();
+    }
+    ffmaxx
+    {
+        type            kqRWallFunction;
+        value           nonuniform 0();
+    }
+    ffminy
+    {
+        type            kqRWallFunction;
+        value           nonuniform 0();
+    }
+    ffmaxy
+    {
+        type            kqRWallFunction;
+        value           nonuniform 0();
+    }
+    symmetryPlane
+    {
+        type            symmetry;
+    }
+    ffmaxz
+    {
+        type            kqRWallFunction;
+        value           nonuniform 0();
+    }
+    inletBig
+    {
+        type            inletOutlet;
+        inletValue      uniform 0.01;
+        value           uniform 0.1;
+    }
+    inletSmall
+    {
+        type            inletOutlet;
+        inletValue      uniform 0.01;
+        value           uniform 0.1;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    wall
+    {
+        type            kqRWallFunction;
+        value           uniform 1e-20;
+    }
+}
+
+
+// ************************************************************************* //

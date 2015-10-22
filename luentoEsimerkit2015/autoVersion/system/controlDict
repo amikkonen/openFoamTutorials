@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX-OS                                                  |
+|   o   O   o      | Version: v2.2.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location system;
+    object controlDict;
+}
+
+    startFrom startTime;
+    startTime 0;
+    stopAt endTime;
+    endTime 1000;
+    deltaT 1;
+    writeControl timeStep;
+    writeInterval 100.0;
+    purgeWrite 0;
+    writeFormat ascii;
+    writePrecision 10;
+    writeCompression uncompressed;
+    timeFormat general;
+    timePrecision 6;
+    graphFormat raw;
+    runTimeModifiable true;
